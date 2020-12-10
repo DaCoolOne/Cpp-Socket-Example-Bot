@@ -1,0 +1,5 @@
+
+// Use to compile the project.
+// Todo: add a makefile to manage this.
+
+g++ -o bot.exe -I ./renderer -I ./structs *.cpp structs/*.cpp renderer/*.cpp -lwsock32
