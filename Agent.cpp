@@ -39,7 +39,7 @@ ControllerState Agent::process(const GameTickPacket & packet)
   m_renderer.line3D(ball_loc, car_loc);
   m_renderer.string3D("HELLO WORLD!", car_loc + Vec3(0, 0, 100));
 
-  // m_ball_prediction.draw(m_renderer, 10);
+  m_ball_prediction.draw(m_renderer, 10);
 
   m_renderer.flush();
 

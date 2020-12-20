@@ -25,6 +25,7 @@ class DynamicBuffer
     bool resize(uint16_t size);
     bool upscale(uint16_t size);
     T* get() const { return m_buffer; };
+    uint16_t getMaxSize() const { return m_max_size; }
 };
 
 }

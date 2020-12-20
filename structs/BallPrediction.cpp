@@ -11,19 +11,15 @@ using std::cout; using std::endl; using std::cerr;
 
 void BallPrediction::update(const flat::BallPrediction * const bp)
 {
-  uint8_t buf[1024];
+  uint8_t buf[2048];
 
-  flatbuffers::Verifier verifier(buf, 1024);
+  flatbuffers::Verifier verifier(buf, 2048);
 
   if(bp == nullptr)
   {
     cout << "NULL PTR" << endl;
   }
-  else if(!bp->Verify(verifier))
-  {
-    cout << "Verification failed for some reason." << endl;
-  }
-  else
+  else if(bp->Verify(verifier))
   {
     auto slices = bp->slices();
 
@@ -37,6 +33,10 @@ void BallPrediction::update(const flat::BallPrediction * const bp)
       // cout << i << endl;
       m_slices.get()[i].update((*slices)[i]);
     }
+  }
+  else
+  {
+    cout << "Verification failed for some reason." << endl;
   }
 }
 
